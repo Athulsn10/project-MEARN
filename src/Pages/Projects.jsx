@@ -7,7 +7,7 @@ function Projects() {
   return (
     <>
       <Header />
-      <h2 className="text-center mt-5">All Projects</h2>
+      <h2 className="text-center" style={{marginTop:'90px'}}>All Projects</h2>
       {/* search */}
       <div className="d-flex align-items-center justify-content-center mt-4">
         <div className="d-flex w-50 position-relative">
