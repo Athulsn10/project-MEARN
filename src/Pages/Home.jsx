@@ -29,7 +29,7 @@ function Home() {
         <Col sm={12} md={6} lg={4}>
           <ProjectCard/>
         </Col>
-        <div className="text-center"><Link to={'/Projects'} style={{textDecoration:'none'}}>View More Projects<i className="ms-2 fa-solid fa-arrow-up-right-from-square" style={{color: '#000000'}}></i></Link></div>
+        <div className="text-center"><Link to={'/projects'} style={{textDecoration:'none'}}>View More Projects<i className="ms-2 fa-solid fa-arrow-up-right-from-square" style={{color: '#000000'}}></i></Link></div>
       </Row>
     </div>
     </>
