@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { registerAPI } from "../Services/allAPI";
+import { registerAPI, loginAPI } from "../Services/allAPI";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -32,6 +32,27 @@ function Auth({register}) {
               toast.warning(result.response.data)
           }
       }
+  }
+
+  const handleLogin = async (e)=>{
+    e.preventDefault();
+    const {email, password}=userData;
+    if(!email||!password){
+      toast.error('All fields are required');
+      }else{
+        const result = await loginAPI(userData)
+        if(result.status===200){
+          sessionStorage.setItem("exisingUser",JSON.stringify(result.data.existingUser))
+          setUserData({
+            email:"",password:""
+          })
+          navigate('/')
+        }else{
+          toast.error(result.response.data)
+          console.log(result);
+        }
+      }
+
   }
   return (
     <div
@@ -90,16 +111,16 @@ function Auth({register}) {
                       Register
                     </button>
                   </div>
-                  <p className="mt-2">
+                  <p className="mt-2 d-flex justify-content-center">
                     Already A user? <Link to={"/login"}>Login</Link>{" "}
                   </p>
                 </div>
               ) : (
                 <div>
                   <div className="d-flex align-items-center justify-content-center">
-                    <button className="btn btn-primary">Register</button>
+                    <button className="btn btn-primary" onClick={handleLogin}>LOG IN</button>
                   </div>
-                  <p className="mt-2">
+                  <p className="mt-2 d-flex justify-content-center">
                     Dont Have Account? <Link to={"/register"}>Register</Link>{" "}
                   </p>
                 </div>
