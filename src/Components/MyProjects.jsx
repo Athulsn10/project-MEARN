@@ -4,9 +4,6 @@ import AddProject from './AddProject'
 function MyProjects() {
   return (
     <>
-    <div className='mt-5 pt-3 ms-3'>
-        <h2>Welcome User</h2>
-    </div>
     <div className='rounded shadow ms-3 px-3 py-3' style={{backgroundColor:'#f0f0f0'}}>
         <div className='d-flex justify-content-between mt-3'>
             <h2>My Projects</h2>

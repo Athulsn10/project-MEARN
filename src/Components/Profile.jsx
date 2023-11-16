@@ -5,7 +5,7 @@ function Profile() {
     <div className='card shadow  p-5'>
         <div className='d-flex justify-content-between'>
             <h2>Profile</h2>
-            <button className='btn btn-outline-info'><i className="fa-solid fa-check" style={{color: '#000000'}}></i></button>
+            <button style={{border:'none'}} className='btn '><i className="fs-4 fa-solid fa-check" style={{color: '#000000'}}></i></button>
         </div>
         <label className='text-center' htmlFor='profile'>
             <input id='profile' style={{display:'none'}} type='file' />
