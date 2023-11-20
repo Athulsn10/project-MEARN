@@ -63,14 +63,17 @@ function AddProject() {
 
       if(token){
         const reqHeader = {
-            "content-type":"multipart/form-data",
-            Authorization:`Bearer ${token}`
-        }
+          "Content-Type": "multipart/form-data",
+          "Authorization": `Bearer ${token}`
+      };
       const result = await addProjectAPI(reqBody,reqHeader)
       if(result.status===200){
         console.log(result.data);
+        handleClose()
+        alert("project Added")
       }else{
         console.log(result);
+        toast.warning(result.response.data)
       }
     }
   }
@@ -133,7 +136,7 @@ function AddProject() {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Language Used"
+                  placeholder="Languages Used"
                   value={projectDetails.languages}
                   onChange={(e) =>
                     setProjectDetails({
